@@ -2,11 +2,19 @@
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+    <script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="../media/js/jquery.template.js"></script>
     <script type="text/javascript" src="../media/js/jquery-ui-1.8.23.custom.min.js"></script>
     <script type="text/javascript" src="../media/js/jquery.rightClick.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.core.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.eidol.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.dock.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.sidedock.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.focus.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.launcher.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon.history.js"></script>
     <link type="text/css" rel="stylesheet" href="../media/css/eidolon.css">
   </head>
   <body>
@@ -15,7 +23,7 @@
       <div class="eidol closed template" id="${id}">
         <div class="header">
           <div class="drag_handle">
-            <img class="eidol_icon" src="..//media/imgs/eidol.png">
+            <img class="eidol_icon" src="../media/imgs/eidol.png">
             <div class="title">
               ${title}
             </div>
@@ -61,6 +69,10 @@
         New Object
       </div>
     </div>
+
+    <script type="text/javascript">
+        Eidolon.Initialize(); 
+    </script>
 
   </body>
 </html>
