@@ -6,7 +6,7 @@
     var Launcher = Eidolon.Launcher = function () {
 
         // Events
-        $('.launcher').live('click', function () {
+        $('#launcher').on('click', function () {
             eidol = new Eidolon.Eidol({
                 title: 'Title',
                 body: ''

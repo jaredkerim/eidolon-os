@@ -4,6 +4,11 @@
 
     var Eidolon = (global.Eidolon || (global.Eidolon = {}));
 
+    // Eidol Template
+    $(function () {
+        Eidolon.eidol_template = Handlebars.compile($('#eidol-template').html());
+    });
+
     // List of all Eidols
     var num_eidols = 0;
     var global_eidols = Eidolon.global_eidols = {};
@@ -40,20 +45,15 @@
             // Add to DOM
             this.render();
             
-            // Eidol Draggable
-            this.get_element().draggable({
-                scroll              : false,
-                handle              : '.drag_handle',
-                revert              : true, 
-            });
         },
 
         render: function () {
-            $('.eidol_staging').append(Eidolon.eidol_template, {
+            var eidol_html = Eidolon.eidol_template({
                 id      : this.id,
                 title   : this.get('title'),
                 body    : this.get('body'),
             });
+            $('#eidol_staging').append(eidol_html);
         },
 
         get_element: function () {
@@ -66,13 +66,10 @@
                 this.isOpen = true;
 
                 html = this.get_element();
-                html.switchClass('closed', 'open', 200, function () { 
-                    html.draggable('option', 'cursorAt', {
-                        top     : html.height()/2.0, 
-                    });
-                    if(callback)
-                        callback();
-                });
+                html.removeClass('closed');
+                html.addClass('open');
+                if(callback)
+                    callback();
             }
         },
 
@@ -83,11 +80,10 @@
                 eidol.isOpen = false;
 
                 html = eidol.get_element();
-                html.switchClass('open', 'closed', 200, function () { 
-                    html.draggable('option', 'cursorAt', false);
-                    if(callback)
-                        callback();
-                });
+                html.removeClass('open');
+                html.addClass('closed');
+                if(callback)
+                    callback();
             } else {
                 if(this.wasOpen) {
                     this.wasOpen = false;
@@ -150,7 +146,7 @@
     });
 
     // Events
-    $('.eidol').live('mouseup', function(event) {
+    $('.eidol').on('mouseup', function(event) {
         eidol = get_eidol(this);
         if(event.button == 0) {
             eidol.leftClick();
@@ -160,14 +156,14 @@
     });
 
     // Eidol Drag Starts
-    $('.eidol').live('dragstart', function(event, ui) {
+    $('.eidol').on('dragstart', function(event, ui) {
         eidol_id = $(this).attr('id');
         eidol = global_eidols[eidol_id];
         eidol.drag();
     });
 
     // Eidol Drag Starts
-    $('.eidol').live('dragstop', function(event, ui) {
+    $('.eidol').on('dragstop', function(event, ui) {
        eidol_id = $(this).attr('id');
         eidol = global_eidols[eidol_id];
         eidol.drop();

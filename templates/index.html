@@ -2,71 +2,86 @@
 
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
-    <script type="text/javascript" src="http://backbonejs.org/backbone-min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.js"></script>
-    <script type="text/javascript" src="../media/js/jquery.template.js"></script>
-    <script type="text/javascript" src="../media/js/jquery-ui-1.8.23.custom.min.js"></script>
-    <script type="text/javascript" src="../media/js/jquery.rightClick.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.core.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.eidol.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.dock.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.sidedock.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.focus.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.launcher.js"></script>
-    <script type="text/javascript" src="../media/js/eidolon.history.js"></script>
-    <link type="text/css" rel="stylesheet" href="../media/css/eidolon.css">
-  </head>
-  <body>
     
-    <div class="eidol_staging">
-      <div class="eidol closed template" id="${id}">
+    <!-- CSS -->
+    <link rel="stylesheet/less" href="../media/css/eidolon.less">
+    
+    <!-- Underscore -->
+    <script type="text/javascript" src="../media/js/underscore/underscore-min.js"></script>
+    
+    <!-- Backbone -->
+    <script type="text/javascript" src="../media/js/backbone/backbone-min.js"></script>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="../media/js/jquery/jquery-2.0.3.min.js"></script>
+    
+    <!-- Handlebars -->
+    <script type="text/javascript" src="../media/js/handlebars/handlebars.js"></script>
+
+    <!-- Tween -->
+    <script type="text/javascript" src="../media/js/tween/TweenMax.min.js"></script>
+   
+    <!-- Eidolon -->
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.core.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.eidol.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.dock.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.sidedock.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.focus.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.launcher.js"></script>
+    <script type="text/javascript" src="../media/js/eidolon/eidolon.history.js"></script>
+    
+    <!-- LESS -->
+    <script type="text/javascript" src="../media/js/less/less-1.4.1.min.js"></script>
+   
+    <script id="eidol-template" type="text/x-handlebars-template">
+
+      <div class="eidol closed" id="{{id}}">
         <div class="header">
-          <div class="drag_handle">
-            <img class="eidol_icon" src="../media/imgs/eidol.png">
-            <div class="title">
-              ${title}
-            </div>
+          <img class="eidol_icon" src="../media/imgs/eidol.png">
+          <div class="title">
+            {{title}}
           </div>
-          <img class="edit_title_icon" src="../media/imgs/edit_title.png">
         </div>
 
-
         <div class="body" contenteditable="true">
-          ${body}
+          {{body}}
         </div>
 
         <div class="footer">
         </div>
       </div>
+
+    </script>
+
+  </head>
+  <body>
+    
+    <div id="eidol_staging">
     </div>      
 
 
-    <div class="top_bar">
-      <div class="history">
-        Monday, May 10th, 2010
+    <div id="container">
+      <div id="top_bar">
+        <div id="history">
+          Monday, May 10th, 2010
+        </div>
       </div>
-    </div>
 
-    <table class="center_pane">
-      <tr>
-        <td class="left_dock dock" align="left">
-          
-        </td>
+      <div id="center_pane">
+          <div id="left_dock" class="dock">
+          </div>
 
-        <td class="focus">
-            
-        </td>
+          <div id="focus">
+          </div>
 
-        <td class="right_dock dock" align="right">
-        </td>
+          <div id="right_dock" class="dock">
+          </div>
+      </div>
 
-      </tr>
-    </table>
-
-    <div class="bottom_bar">
-      <div class="launcher">
-        New Object
+      <div id="bottom_bar">
+        <div id="launcher">
+          New Object
+        </div>
       </div>
     </div>
 

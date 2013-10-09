@@ -1,0 +1,230 @@
+body {
+    font-family           : sans-serif;
+    color                 : white;
+    background-image      : url(../imgs/background.jpeg);
+    height                : 100%;
+    padding               : 0px;
+    margin                : 0px;
+    //overflow              : hidden;
+}
+
+#eidol_staging {
+    display               : none;
+}
+
+#container {
+    width                 : 100%;
+    height                : 100%;
+    display               : -webkit-flex; 
+    -webkit-flex-direction: column;
+
+    #top_bar {
+        width                 : 100%;
+        height                : 40px;
+
+        #history {
+            text-align            : center;
+            padding               : 10px;
+            width                 : 50%;
+            margin-left           : auto;
+            margin-right          : auto;
+            border                : solid 1px #CCC;
+            border-top            : none;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(65, 134, 211, 0.5)), 
+                color-stop(0.5, rgba(39, 79, 125, 0.9)), 
+                to(rgba(21, 59, 101, 0.5))
+            );
+            -webkit-border-bottom-left-radius : 10px;
+            -webkit-border-bottom-right-radius: 10px;
+        }
+    }
+    
+    #center_pane {
+        width                     : 100%;
+        display                   : -webkit-flex;
+
+        #focus {
+            width                 : 60%;
+            height                : 100%;
+            display               : -webkit-flex;
+            
+            .eidol {
+                margin            : auto;
+            }
+        }
+        
+        .dock {
+            width                 : 20%;
+            
+            .eidol {
+                margin            : 2px;
+            }
+        }
+       
+        #left_dock {
+        }
+
+        #right_dock {
+        }
+
+        #left_dock .eidol:hover {
+            margin-left           : 4px;
+        }
+
+        #right_dock .eidol:hover {
+            margin-right          : 4px;
+        }
+    }
+
+    #bottom_bar { 
+        width                     : 100%;
+        height                    : 40px;
+        text-align                : center;
+        
+        #launcher {
+            display               : inline-block;
+            margin-left           : auto;
+            margin-right          : auto;
+            text-align            : center;
+            cursor                : pointer;
+            padding               : 10px;
+            border                : solid 1px #CCC;
+            border-bottom         : none;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(65, 134, 211, 0.5)), 
+                color-stop(0.5, rgba(39, 79, 125, 0.9)), 
+                to(rgba(21, 59, 101, 0.5))
+            );
+            -webkit-border-top-left-radius : 10px;
+            -webkit-border-top-right-radius: 10px;
+        }
+    }
+}
+
+
+.eidol {
+
+    &.open {
+
+        .header {
+            cursor                : pointer;
+            padding               : 10px;
+            padding-bottom        : 0px;
+            text-align            : center;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(65, 134, 211, 0.5)), 
+                to(rgba(39, 79, 125, 0.8))
+            );
+            border                : solid 1px #CCC;
+            border-bottom         : none;
+            -webkit-border-top-left-radius : 10px;
+            -webkit-border-top-right-radius: 10px;
+        }
+        
+        .eidol_icon {
+            display               : inline;
+            margin-bottom         : -3px;
+            height                : 25px;
+        }
+
+        .title {
+            display               : inline-block;
+            cursor                : pointer;
+            height                : 25px;
+            font-size             : 20px;
+            font-weight           : bold;
+            white-space           : nowrap;
+            overflow              : none;
+            max-width             : 50%;
+        }
+
+        .body {
+            padding               : 10px;
+            padding-bottom        : 0px;
+            text-align            : left;
+            border                : solid 1px #CCC;
+            border-top            : none;
+            border-bottom         : none;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(39, 79, 125, 0.8)), 
+                to(rgba(21, 59, 101, 0.8))
+            );
+        }
+
+        .footer {
+            height                : 10px;
+            padding               : 10px;
+            border                : solid 1px #CCC;
+            border-top            : none;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(21, 59, 101, 0.8)), 
+                to(rgba(65, 134, 211, 0.5))
+            );
+            -webkit-border-bottom-left-radius : 10px;
+            -webkit-border-bottom-right-radius: 10px;
+        }
+    }
+
+    &.closed {
+
+        .header {
+            padding               : 10px;
+            text-align            : center;
+            font-size             : 14pt;
+            font-weight           : bold;
+            cursor                : pointer;
+            border                : solid 1px #CCC;
+            background-image      : -webkit-gradient(
+                linear, 
+                left top, 
+                left bottom, 
+                from(rgba(65, 134, 211, 0.5)), 
+                color-stop(0.5, rgba(39, 79, 125, 0.9)), 
+                to(rgba(21, 59, 101, 0.5))
+            );
+            -webkit-border-top-left-radius : 10px;
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-left-radius : 10px;
+            -webkit-border-bottom-right-radius: 10px;
+        
+        }
+
+        .title {
+            display               : inline;
+        }
+
+        .eidol_icon {
+            display               : inline;
+            margin-bottom         : -4px;
+            height                : 25px;
+        }
+
+        .edit_title_icon {
+            display               : none;
+        }
+
+        .body {
+            display               : none;
+        }
+
+        .footer {
+            display               : none;
+        }
+    }
+}

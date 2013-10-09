@@ -5,24 +5,22 @@
 
     var SideDock = Eidolon.SideDock = function(html, alignment) {
         this.html = html;
-        this.html.disableSelection();
         
         this.alignment = alignment;
 
-        this.html.droppable({
-            tolerance   : 'pointer',
-            drop        : function (event, ui) {
-                console.log(this.className, 'dropped on');
-                dock = Eidolon.Manager.dock.get_dock(this.className);
-                eidol = Eidolon.get_eidol(ui.draggable);
-                eidol.close(function () { 
-                    dock.add(eidol);
-                });
-                
-            }
-        });
+        //this.html.droppable({
+        //    tolerance   : 'pointer',
+        //    drop        : function (event, ui) {
+        //        console.log(this.className, 'dropped on');
+        //        dock = Eidolon.Manager.dock.get_dock(this.className);
+        //        eidol = Eidolon.get_eidol(ui.draggable);
+        //        eidol.close(function () { 
+        //            dock.add(eidol);
+        //        });
+        //        
+        //    }
+        //});
 
-        
         this.add = function(eidol, callback) {
             dock = this;
             
